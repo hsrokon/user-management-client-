@@ -28,8 +28,10 @@ function App() {
     .then(res => res.json())
     .then(data => {
       console.log(data);
+      const newUsers = [...users, data]
+      setUsers(newUsers)
+      e.target.reset()
     })
-    
   }
 
   return (
@@ -50,7 +52,7 @@ function App() {
           users.map(user => <div key={user.id} style={{border:'2px solid yellow', margin:'6px'}}>
           <p>{user.id}</p>
           <h4>{user.name}</h4>
-          <p>{user.profession}</p>
+          <p>{user.email}</p>
           </div>)
         }
       </div>
